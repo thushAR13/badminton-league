@@ -11,7 +11,7 @@ A simple, fast, and robust Ruby on Rails application designed to track badminton
 
 ## Tech Stack
 
-* Framework: Ruby on Rails 7
+* Framework: Ruby on Rails 8
 * Database: SQLite (Default) / PostgreSQL ready
 * Styling: Bootstrap 5 (via CDN)
 * Testing: RSpec & FactoryBot
@@ -46,4 +46,4 @@ bundle exec rspec
 
 ## AI Usage Disclaimer
 
-Artificial Intelligence (AI) assistance was utilized during the development of this project. Specifically, AI tools were used to help generate and structure the RSpec test cases (including FactoryBot configurations) and to implement front-end UI/UX improvements using Bootstrap 5 classes. The core business logic, database schema design, and overarching application architecture were driven by human development.
+Artificial Intelligence (AI) assistance was utilized during the development of this project. Specifically, AI tools were used to help generate and structure the RSpec test cases and to implement front-end UI/UX improvements using Bootstrap 5 classes. The core business logic, database schema design, and overarching application architecture were driven by human development.
