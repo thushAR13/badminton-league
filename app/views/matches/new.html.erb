@@ -1,0 +1,29 @@
+<h1>Record a Match</h1>
+
+<div style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; max-width: 400px;">
+  <%= form_with model: @match, url: matches_path do |form| %>
+    
+    <% if @match.errors.any? %>
+      <div style="color: red; margin-bottom: 15px;">
+        <strong>Error:</strong> <%= @match.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+
+    <div style="margin-bottom: 10px;">
+      <%= form.label :winner_id, "Winner:", style: "display: block; font-weight: bold;" %>
+      <%= form.collection_select :winner_id, @players, :id, :name, { prompt: "Select the Winner" }, { required: true } %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :loser_id, "Loser:", style: "display: block; font-weight: bold;" %>
+      <%= form.collection_select :loser_id, @players, :id, :name, { prompt: "Select the Loser" }, { required: true } %>
+    </div>
+
+    <div>
+      <%= form.submit "Save Match Result" %>
+    </div>
+
+  <% end %>
+</div>
+
+<%= link_to "← Back to Leaderboard", root_path %>
