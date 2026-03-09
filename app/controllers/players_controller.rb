@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
       redirect_to players_path, notice: "Player creation succesful!!"
     else
       @new_player = @player
-      @players = Players.order(:name)
+      @players = Player.order(:name)
       render :index, status: :unprocessable_entity
     end
   end

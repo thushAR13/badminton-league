@@ -1,41 +1,45 @@
-<h1>Manage Players</h1>
+<h1 class="mb-4">Manage Players</h1>
 
-<div style="margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; max-width: 400px;">
-  <h3>Add a New Player</h3>
-  
-  <%= form_with model: @new_player, url: players_path do |form| %>
-    <% if @new_player.errors.any? %>
-      <div style="color: red; margin-bottom: 10px;">
-        <%= @new_player.errors.full_messages.to_sentence %>
+<div class="card mb-5" style="max-width: 400px;">
+  <div class="card-body">
+    <h5 class="card-title mb-3">Add a New Player</h5>
+    
+    <%= form_with model: @new_player, url: players_path do |form| %>
+      <% if @new_player.errors.any? %>
+        <div class="alert alert-danger py-2 mb-3" role="alert">
+          <%= @new_player.errors.full_messages.to_sentence %>
+        </div>
+      <% end %>
+
+      <div class="input-group">
+        <%= form.text_field :name, class: "form-control", placeholder: "Enter player name...", required: true %>
+        <%= form.submit "Add Player", class: "btn btn-success" %>
       </div>
     <% end %>
-
-    <div>
-      <%= form.text_field :name, placeholder: "Enter player name...", required: true %>
-      <%= form.submit "Add Player" %>
-    </div>
-  <% end %>
+  </div>
 </div>
 
-<h3>Current Roster</h3>
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
+<h3 class="mb-3">Current Roster</h3>
+
+<table class="table table-striped table-hover table-bordered shadow-sm" style="max-width: 600px;">
+  <thead class="table-light">
     <tr>
       <th>Name</th>
-      <th>Actions</th>
+      <th style="width: 100px;">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.name %></td>
+        <td class="align-middle"><%= player.name %></td>
         <td>
-          <%= link_to "Remove", player_path(player),data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete their match history too." } %>
+          <%= link_to "Remove", player_path(player), class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete their match history too." } %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= link_to "← Back to Leaderboard", root_path %>
+<div class="mt-4">
+  <%= link_to "← Back to Leaderboard", root_path, class: "text-decoration-none" %>
+</div>  
